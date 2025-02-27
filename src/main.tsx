@@ -1,8 +1,9 @@
 import { lazy } from 'react'
 import { createRoot } from 'react-dom/client'
+import { HelmetProvider } from 'react-helmet-async'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { BrowserRouter as Router } from 'react-router-dom'
 
 import './i18n'
 import { GlobalStyles } from 'components'
@@ -22,13 +23,15 @@ const rootEl = document.getElementById('root')
 if (rootEl) {
   const root = createRoot(rootEl)
   root.render(
-    <Router>
-      <QueryClientProvider client={queryClient}>
-        <GlobalStyles>
-          <LazyApp />
-        </GlobalStyles>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <QueryClientProvider client={queryClient}>
+          <GlobalStyles>
+            <LazyApp />
+          </GlobalStyles>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </Router>
+    </HelmetProvider>
   )
 }
