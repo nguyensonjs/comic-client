@@ -1,2 +1,5 @@
 export * from './GlobalStyles'
 export * from './ProtectedRoute'
+export * from './Helmet'
+export * from './Image'
+export * from './Spinner'
