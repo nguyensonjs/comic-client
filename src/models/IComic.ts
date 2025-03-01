@@ -1,4 +1,4 @@
-import { IOption, IPagination, ISeoOnPage } from './ICommon'
+import { IOption, IPagination, ISeoOnPage } from './common'
 
 interface IChapter {
   filename?: string
