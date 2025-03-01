@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { fetchHomeApi } from 'apis'
 import { Image } from 'components'
 import { HOME_URL, IMAGE_URL } from 'defines'
+import { AppHeader } from 'layouts/components/AppHeader'
 import { IComic } from 'models'
 import Slider from 'react-slick'
 
@@ -27,7 +28,8 @@ export const Home = () => {
   }
 
   return (
-    <div>
+    <>
+      <AppHeader />
       <Slider {...settings} className="mx-auto w-full max-w-7xl">
         {listImage.map((src, index) => (
           <div key={index} className="p-2">
@@ -35,6 +37,6 @@ export const Home = () => {
           </div>
         ))}
       </Slider>
-    </div>
+    </>
   )
 }

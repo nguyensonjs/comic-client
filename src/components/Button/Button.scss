@@ -1,0 +1,9 @@
+.button {
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+  &.btn-primary {
+    @apply bg-amber-50;
+  }
+}
