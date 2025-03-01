@@ -1,10 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 import { fetchHomeApi } from 'apis'
-import { Helmet, Image } from 'components'
-import { APP_TILE, HOME_URL, IMAGE_URL } from 'defines'
+import { Image } from 'components'
+import { HOME_URL, IMAGE_URL } from 'defines'
 import { IComic } from 'models'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 import Slider from 'react-slick'
 
 export const Home = () => {
@@ -30,7 +28,6 @@ export const Home = () => {
 
   return (
     <div>
-      <Helmet title={APP_TILE} />
       <Slider {...settings} className="mx-auto w-full max-w-7xl">
         {listImage.map((src, index) => (
           <div key={index} className="p-2">

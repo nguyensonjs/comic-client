@@ -24,9 +24,13 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     /* paths */
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "types": [
+      "vite/client"
+    ]
   },
   "include": [
-    "src"
+    "src",
+    "vite-env.d.ts"
   ]
 }
