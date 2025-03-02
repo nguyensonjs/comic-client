@@ -12,7 +12,7 @@ export const Home = () => {
     queryFn: () => fetchHomeApi(HOME_URL)
   })
 
-  const listImage = data?.data?.seoOnPage?.og_image || []
+  const listImage = data?.data?.seoOnPage?.og_image ?? [] // Tránh lỗi `undefined`
 
   if (isLoading) return <p>Đang tải...</p>
   if (isError) return <p>Đã có lỗi xảy ra!</p>
@@ -21,7 +21,7 @@ export const Home = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: Math.min(6, listImage.length),
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 1600
@@ -30,13 +30,21 @@ export const Home = () => {
   return (
     <>
       <AppHeader />
-      <Slider {...settings} className="mx-auto w-full max-w-7xl">
-        {listImage.map((src, index) => (
-          <div key={index} className="p-2">
-            <Image className="h-56 w-full rounded-lg" src={`${IMAGE_URL}${src}`} />
-          </div>
-        ))}
-      </Slider>
+      {listImage.length > 0 ? (
+        <Slider {...settings} className="mx-auto w-full max-w-7xl overflow-hidden">
+          {listImage.map((src, index) => (
+            <div key={index} className="p-2">
+              <Image
+                className="h-56 w-full rounded-lg object-cover"
+                src={`${IMAGE_URL}${src}`}
+                alt={`Slide ${index + 1}`}
+              />
+            </div>
+          ))}
+        </Slider>
+      ) : (
+        <p className="text-center text-gray-500">Không có ảnh nào để hiển thị</p>
+      )}
     </>
   )
 }
