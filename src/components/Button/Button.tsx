@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from 'react'
-import './Button.scss'
 
 interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLElement>, 'type'> {
   children: ReactNode | string
