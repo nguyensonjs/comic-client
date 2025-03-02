@@ -7,9 +7,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import './i18n'
 
-import 'assets/styles/app.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import 'assets/styles/app.css'
 
 const queryClient = new QueryClient({
   defaultOptions: {
